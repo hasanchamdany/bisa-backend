@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
 });
 
 //middleware
-app.use(cors())
+// app.use(cors())
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(express.json());
