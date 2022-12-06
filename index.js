@@ -61,11 +61,17 @@ app.use(cors())
 app.use(bodyParser.json())
 // app.use(cookieParser())
 app.use(express.json());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/bike", bikeRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/member", memberRoutes);
 app.use("/api/booking", bookingRoutes);
+
 
 
 //listen
