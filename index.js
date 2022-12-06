@@ -26,7 +26,7 @@ const dbConnection = process.env.DB_CONNECTION
 //connection to DB
 const connect = async () => {
   try {
-    await mongoose.connect(dbConfig);
+    await mongoose.connect(dbConnection);
     console.log("Database Connected");
   } catch (error) {
     throw error;
