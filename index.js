@@ -16,7 +16,8 @@ const app = express();
 // const mongoose = require('mongoose');
 // require('dotenv/config')
 // const config = require('config')
-const dbConfig = config.get("campus-bike-rent.dbConfig.dbName");
+// const dbConfig = config.get("campus-bike-rent.dbConfig.dbName");
+const dbConnection = process.env.DB_CONNECTION
 
 //import routes
 // const bikeRoutes = require(`./src/routes/bike.js`)
