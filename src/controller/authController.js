@@ -34,6 +34,7 @@ export const login = async (req, res, next)=>{
         // res.cookie("access_token", token, {httpOnly:true}).status(200).json({...otherDetails})
         // res.send(token, user._doc);
         res.json({token: token, user:user._doc})
+        res.send("login successfully")
         
     }catch(err){
         next(err)
