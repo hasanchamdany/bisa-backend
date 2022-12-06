@@ -57,9 +57,9 @@ app.get("/", (req, res) => {
 });
 
 //middleware
-// app.use(cors())
+app.use(cors())
 app.use(bodyParser.json())
-app.use(cookieParser())
+// app.use(cookieParser())
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/bike", bikeRoutes);
