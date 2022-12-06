@@ -21,9 +21,7 @@ export const register = async (req, res, next)=>{
 }
 
 export const login = async (req, res, next)=>{
-    res.send("masuk awal login handler")
     try{
-        res.send("masuk awal try")
         const user = await User.findOne({email:req.body.email})
         if(!user) return next(createError(404, "User not found"))
 
@@ -36,10 +34,8 @@ export const login = async (req, res, next)=>{
         // res.cookie("access_token", token, {httpOnly:true}).status(200).json({...otherDetails})
         // res.send(token, user._doc);
         res.json({token: token, user:user._doc})
-        return res.send("login successfully")
         
     }catch(err){
         next(err)
-        res.send("login failed")
     }
 }
