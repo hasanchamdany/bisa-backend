@@ -22,21 +22,29 @@ const dbConnection = process.env.DB_CONNECTION
 // import bikeRoutes from "./src/routes/bike"
 
 //connection to DB
-const connect = async () => {
-  try {
-    await mongoose.connect(dbConnection);
-    console.log("Database Connected");
-  } catch (error) {
-    throw error;
-  }
-};
+mongoose
+  .connect(MONGO_URI)
+  .then(() => console.log('Connected to mongodb'))
+  .catch((err) => {
+    console.error(`Can't connect to mongodb`);
+    console.error(err);
+    process.exit(1);
+  });
+// const connect = async () => {
+//   try {
+//     await mongoose.connect(dbConnection);
+//     console.log("Database Connected");
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 
-mongoose.connection.on("disconnected", () => {
-  console.log("mongoDB disconnected!");
-});
-mongoose.connection.on("connected", () => {
-  console.log("mongoDB connected!");
-});
+// mongoose.connection.on("disconnected", () => {
+//   console.log("mongoDB disconnected!");
+// });
+// mongoose.connection.on("connected", () => {
+//   console.log("mongoDB connected!");
+// });
 // mongoose.connect(dbConfig).then(() => {
 //     console.log("Database Connected")
 // }).catch(err => {
