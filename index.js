@@ -6,8 +6,6 @@ import bikeRoutes from "./src/routes/bikes.js";
 import adminRoutes from "./src/routes/admins.js";
 import memberRoutes from "./src/routes/members.js"
 import bookingRoutes from "./src/routes/bookings.js";
-import config from "config";
-import cookieParser from "cookie-parser";
 import cors from "cors"
 import bodyParser from "body-parser";
 
@@ -72,6 +70,14 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/member", memberRoutes);
 app.use("/api/booking", bookingRoutes);
 
+
+app.get("/api/mongo", (req, res) => {
+  res.json({status: mongoose.connection.readyState});
+});
+
+app.get("/api/dotenv", (req, res) => {
+  res.json({status: process.env.DB_CONNECTION});
+});
 
 
 //listen
