@@ -11,15 +11,9 @@ import bodyParser from "body-parser";
 
 // const express = require('express');
 const app = express();
-// const mongoose = require('mongoose');
-// require('dotenv/config')
-// const config = require('config')
-// const dbConfig = config.get("campus-bike-rent.dbConfig.dbName");
+
 const dbConnection = process.env.DB_CONNECTION
 
-//import routes
-// const bikeRoutes = require(`./src/routes/bike.js`)
-// import bikeRoutes from "./src/routes/bike"
 
 //connection to DB
 mongoose
@@ -30,33 +24,7 @@ mongoose
     console.error(err);
     process.exit(1);
   });
-// const connect = async () => {
-//   try {
-//     await mongoose.connect(dbConnection);
-//     console.log("Database Connected");
-//   } catch (error) {
-//     throw error;
-//   }
-// };
 
-// mongoose.connection.on("disconnected", () => {
-//   console.log("mongoDB disconnected!");
-// });
-// mongoose.connection.on("connected", () => {
-//   console.log("mongoDB connected!");
-// });
-// mongoose.connect(dbConfig).then(() => {
-//     console.log("Database Connected")
-// }).catch(err => {
-//     console.log("Database not Connected"+err)
-// })
-
-// let db = mongoose.connection
-// db.on("disconnect", () => console.log("Database Disconnected"))
-// db.on('error', console.error.bind(console, 'Database connection error'))
-// db.once('open', () => {
-//     console.log("Database is connected");
-// })
 
 app.get("/", (req, res) => {
   res.send("BISA backend is running");
