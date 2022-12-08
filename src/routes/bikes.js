@@ -33,8 +33,4 @@ router.get("/:id", findBikeById);
 //findAll
 router.get("/", findAllBikes);
 
-router.get("/", async (req, res) => {
-  res.send("hello this is bike router endpoint!");
-});
-
 export default router;
