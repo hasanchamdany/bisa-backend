@@ -23,7 +23,7 @@ const dbConnection = process.env.DB_CONNECTION
 
 //connection to DB
 mongoose
-  .connect(MONGO_URI)
+  .connect(dbConnection)
   .then(() => console.log('Connected to mongodb'))
   .catch((err) => {
     console.error(`Can't connect to mongodb`);
@@ -90,7 +90,7 @@ app.get("/api/dotenv", (req, res) => {
 
 //listen
 app.listen(process.env.PORT, () => {
-  connect();
+  // connect();
   console.log("connected to backend");
   console.log(process.env.PORT);
 });
